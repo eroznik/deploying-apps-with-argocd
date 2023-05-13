@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tr-world-domination
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: team-red-project
+  source:
+    repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
+    targetRevision: HEAD
+    path: repository-team-red/world-domination
+    helm:
+      valueFiles:
+        - values.yaml
+        - image-production.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: team-red-ns
+  syncPolicy:
+    automated: { }
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tr-world-domination-preview
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: team-red-project
+  source:
+    repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
+    targetRevision: HEAD
+    path: repository-team-red/world-domination
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-preview.yaml
+        - image-preview.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: team-red-ns
+  syncPolicy:
+    automated: { }

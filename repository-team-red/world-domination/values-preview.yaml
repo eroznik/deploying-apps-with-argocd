@@ -1,0 +1,3 @@
+app:
+  name: world-domination-preview
+  replicas: 1

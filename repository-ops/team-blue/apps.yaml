@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tb-home-guard
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: team-blue-project
+  source:
+    repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
+    targetRevision: HEAD
+    path: repository-team-blue/home-guard
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: team-blue-ns
+  syncPolicy:
+    automated: { }

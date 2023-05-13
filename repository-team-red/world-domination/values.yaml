@@ -1,0 +1,7 @@
+team:
+  name: team-red
+app:
+  name: world-domination
+  replicas: 4
+  image:
+    tag: blue

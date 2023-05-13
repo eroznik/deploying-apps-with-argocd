@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: team-red-apps
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: bootstrap-apps
+  source:
+    repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
+    targetRevision: HEAD
+    path: repository-ops/team-red
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated: { }
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: team-blue-apps
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: bootstrap-apps
+  source:
+    repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
+    targetRevision: HEAD
+    path: repository-ops/team-blue
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated: { }

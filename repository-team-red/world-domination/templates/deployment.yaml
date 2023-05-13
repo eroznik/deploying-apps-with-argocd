@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+  labels:
+    team: {{ .Values.team.name }}
+    app: {{ .Values.app.name }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      team: {{ .Values.team.name }}
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        team: {{ .Values.team.name }}
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+        - name: app
+          image: gcr.io/kuar-demo/kuard-amd64:{{ .Values.app.image.tag }}
+          ports:
+            - name: web
+              containerPort: 8080

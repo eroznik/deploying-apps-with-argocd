@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: home-guard
+  labels:
+    team: team-blue
+    app: home-guard
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      team: team-blue
+      app: home-guard
+  serviceName: home-guard
+  template:
+    metadata:
+      labels:
+        team: team-blue
+        app: home-guard
+    spec:
+      containers:
+        - name: app
+          image: gcr.io/kuar-demo/kuard-amd64:green
+          ports:
+            - name: web
+              containerPort: 8080

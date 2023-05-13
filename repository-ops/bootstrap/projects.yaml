@@ -1,0 +1,73 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: bootstrap-apps
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/eroznik/**'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceBlacklist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: 'argoproj.io'
+      kind: 'AppProject'
+    - group: 'argoproj.io'
+      kind: 'Application'
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-red-project
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/eroznik/**'
+  destinations:
+    - namespace: 'team-red-ns'
+      server: '*'
+  clusterResourceBlacklist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: 'apps'
+      kind: 'Deployment'
+    - group: 'apps'
+      kind: 'ReplicaSet'
+    - group: ''
+      kind: 'Pod'
+    - group: ''
+      kind: 'Service'
+    - group: 'networking.k8s.io'
+      kind: 'Ingress'
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-blue-project
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/eroznik/**'
+  destinations:
+    - namespace: 'team-blue-ns'
+      server: '*'
+  clusterResourceBlacklist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: 'apps'
+      kind: 'StatefulSet'
+    - group: ''
+      kind: 'Pod'
+    - group: ''
+      kind: 'Service'
+    - group: 'networking.k8s.io'
+      kind: 'Ingress'
