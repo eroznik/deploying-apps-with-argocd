@@ -67,3 +67,5 @@ This step will initialise the cluster with all configured apps/projects/namespac
 ```bash
 kubectl apply -f manual-apply/bootstrap.yaml
 ```
+
+This is considered as a "push" change.
