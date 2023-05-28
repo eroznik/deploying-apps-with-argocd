@@ -15,6 +15,6 @@ echo "$appName is being promoted to '$PROMOTE_TAG'"
 yq -i '.app.image.tag = env(PROMOTE_TAG)' $appName/image-production.yaml
 
 git add $appName/image-production.yaml
-git commit -m "[promote-production] $appName - $RELEASE_TAG"
+git commit -m "[promote-production] $appName - $PROMOTE_TAG"
 
 echo "Promotion complete!"
