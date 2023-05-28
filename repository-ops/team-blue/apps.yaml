@@ -9,7 +9,7 @@ spec:
   project: team-blue-project
   source:
     repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
-    targetRevision: HEAD
+    targetRevision: test-ld
     path: repository-team-blue/home-guard
   destination:
     server: https://kubernetes.default.svc

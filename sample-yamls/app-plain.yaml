@@ -7,7 +7,7 @@ spec:
   source:
     path: pokemon-trainer
     repoURL: https://github.com/eroznik/apps.git
-    targetRevision: HEAD
+    targetRevision: test-ld
   destination:
     server: https://kubernetes.default.svc
     namespace: pokemon-world

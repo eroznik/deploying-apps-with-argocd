@@ -9,7 +9,7 @@ spec:
   project: bootstrap-apps
   source:
     repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
-    targetRevision: HEAD
+    targetRevision: test-ld
     path: repository-ops/team-red
   destination:
     server: https://kubernetes.default.svc
@@ -30,7 +30,7 @@ spec:
   project: bootstrap-apps
   source:
     repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
-    targetRevision: HEAD
+    targetRevision: test-ld
     path: repository-ops/team-blue
   destination:
     server: https://kubernetes.default.svc

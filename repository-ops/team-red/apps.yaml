@@ -9,7 +9,7 @@ spec:
   project: team-red-project
   source:
     repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
-    targetRevision: HEAD
+    targetRevision: test-ld
     path: repository-team-red/world-domination
     helm:
       valueFiles:
@@ -34,7 +34,7 @@ spec:
   project: team-red-project
   source:
     repoURL: https://github.com/eroznik/deploying-apps-with-argocd.git
-    targetRevision: HEAD
+    targetRevision: test-ld
     path: repository-team-red/world-domination
     helm:
       valueFiles:
