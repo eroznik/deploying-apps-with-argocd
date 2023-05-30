@@ -10,4 +10,4 @@ spec:
     targetRevision: 4.7.0
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx-ingress
+    namespace: ingress-nginx
