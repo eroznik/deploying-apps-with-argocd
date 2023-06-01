@@ -44,5 +44,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: team-red-ns
-  syncPolicy:
-    automated: { }
+#  syncPolicy:
+#    automated: { }
